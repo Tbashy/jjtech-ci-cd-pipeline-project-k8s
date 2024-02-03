@@ -113,9 +113,9 @@ pipeline {
 
     stage('Build and Push Docker Image') {
       environment {
-        awsAccountId = '389029577690'
+        awsAccountId = '651810021553'
         region = 'us-east-1'
-        repositoryName = 'jjtech-demo'
+        repositoryName = 'pipeline-repo'
         dockerImageTag = "${BUILD_NUMBER}"
         ecrRegistry = "${awsAccountId}.dkr.ecr.${region}.amazonaws.com"
       }
@@ -129,7 +129,7 @@ pipeline {
                 sh "docker tag ${repositoryName}:${dockerImageTag} ${ecrRegistry}/${repositoryName}:${dockerImageTag}"
                 sh "docker push ${ecrRegistry}/${repositoryName}:${dockerImageTag}"
                 sh "docker rmi ${ecrRegistry}/${repositoryName}:${dockerImageTag}"
-                sh " docker rmi ${repositoryName}:${dockerImageTag}"
+                sh "docker rmi ${repositoryName}:${dockerImageTag}"
       }
     }
 
