@@ -43,9 +43,10 @@ sudo yum -y install terraform
 sudo yum update -y
 sudo yum install -y docker
 sudo service docker start
+sudo service dicker 
 sudo usermod -aG docker jenkins
 sudo systemctl restart docker
-
+sudo service docker enable
 # Install kubectl
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.25.9/2023-05-11/bin/linux/amd64/kubectl
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.25.9/2023-05-11/bin/linux/amd64/kubectl.sha256
